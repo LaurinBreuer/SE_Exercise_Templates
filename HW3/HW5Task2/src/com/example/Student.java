@@ -7,7 +7,10 @@ public class Student {
 
     private int id;
     private String name;
+    // 0..* multiplicity with Project
     private Project project;
+
+    //Many to Many association with Student
     private List<Exam> exams = new ArrayList<Exam>();
 
     public Student(int pId, String pName){
