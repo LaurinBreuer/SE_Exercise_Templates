@@ -21,7 +21,11 @@ public class Course {
     }
 
     public void enroll(Student student){
-        students.add(student);
+        if (!isFull) {
+            students.add(student);
+        }else{
+            System.out.println("The course is full.");
+        }
     }
 
     public void setMaxCap(int max){
@@ -38,6 +42,10 @@ public class Course {
 
     public String getName(){
         return this.name;
+    }
+
+    public void setFull(){
+        isFull = true;
     }
 
 
