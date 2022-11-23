@@ -21,6 +21,8 @@ public class Glass implements HouseholdItem{
 
 
 
+
+
 //Getters and Setters =
 
 	public int getHeight() {
@@ -55,8 +57,9 @@ public class Glass implements HouseholdItem{
 		this.name = name;
 	}
 
-	
-	
 
+	@Override
+	public void accept(Visitor v) {
 
+	}
 }
