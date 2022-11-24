@@ -26,11 +26,24 @@ public static void main(String[] args) {
 		
         List<HouseholdItem> namesList = Arrays.asList(microwaveOven,tv,wineGlass,coffeeTable,bed,cupboard);
         householdItems.addAll(namesList);
-		PriceCalculator p = new PriceCalculator();
-		System.out.println("Total Cost for TV is: " + p.getPrice(tv));
-		System.out.println("Total Cost for Microwave Oven is: " + p.getPrice(microwaveOven));
+		printPrices(householdItems);
+		printInstructions(householdItems);
 		
   
 }
+	public static void printPrices(List<HouseholdItem> hItems){
+		PriceCalculator p = new PriceCalculator();
+		for (HouseholdItem h : hItems){
+			System.out.println("Total Cost for " + h.getName() + " is: " + p.getPrice(h) + " Euros");
+		}
+	}
+
+	public static void printInstructions(List<HouseholdItem> hItems){
+		PriceCalculator p = new PriceCalculator();
+		for (HouseholdItem h : hItems){
+			System.out.println(h.getName() + ":");
+			System.out.println(" >" + p.getInstructions(h));
+		}
+	}
 
 }

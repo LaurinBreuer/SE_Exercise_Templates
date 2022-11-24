@@ -68,6 +68,6 @@ public class Furniture implements HouseholdItem{
 
 	@Override
 	public void accept(Visitor v) {
-
+		v.visitFurniture(this);
 	}
 }
