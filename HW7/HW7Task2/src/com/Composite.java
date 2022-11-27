@@ -6,20 +6,17 @@ import java.util.List;
 public class Composite implements Team{
 
     private List<Team> teams;
-
-    private String name;
     private int numAthletes;
     private int numGold;
+    private String name;
 
 
-    public Composite(String name, int numA, int numG){
+    public Composite(String name,  int numA, int numG ){
         this.name = name;
         this.numAthletes = numA;
         this.numGold = numG;
         this.teams = new ArrayList<>();
     }
-
-
 
     public void addTeam(Team t){
         teams.add(t);
@@ -29,10 +26,28 @@ public class Composite implements Team{
         teams.remove(t);
     }
 
-    @Override
-    public void showTeamDetails() {
-        for(Team t:teams){
-            t.showTeamDetails();
-        }
+    public String getName() {
+        return name;
     }
+
+    @Override
+    public int getNumAthletes() {
+        return numAthletes;
+    }
+
+    @Override
+    public int getNumGold() {
+        return numGold;
+    }
+
+    @Override
+    public void accept(Visitor v) {
+        v.visit(this);
+        for(Team t:teams){
+            t.accept(v);
+        }
+
+    }
+
+
 }

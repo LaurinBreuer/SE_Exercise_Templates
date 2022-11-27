@@ -2,6 +2,10 @@ package com;
 
 public interface Team {
 
-    void showTeamDetails();
+    void accept(Visitor v);
+    String getName();
+    int getNumAthletes();
+    int getNumGold();
+
 
 }

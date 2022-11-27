@@ -2,7 +2,6 @@ package com;
 
 public class Leaf implements Team{
 
-
     private String name;
     private int numAthletes;
     private int numGold;
@@ -11,13 +10,6 @@ public class Leaf implements Team{
         this.name = name;
         this.numAthletes = numA;
         this.numGold = numG;
-    }
-
-    @Override
-    public void showTeamDetails() {
-        System.out.println("Team: " + this.getName() + " Number of Athletes: " + getNumAthletes() +
-                " Number of Gold Medals: " + getNumGold());
-
     }
 
     public String getName() {
@@ -30,5 +22,9 @@ public class Leaf implements Team{
 
     public int getNumGold() {
         return numGold;
+    }
+
+    public void accept(Visitor v){
+        v.visit(this);
     }
 }
